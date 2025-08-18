@@ -34,10 +34,13 @@ class FileOperarions():
 fo = FileOperarions()
 
 if __name__ == '__main__':
-    user_input = input()
-    if user_input.startswith("fileops create -fol"):
-        _, _, _, folder_name = user_input.split()
-        fo.createFolder(folder_name)
-    elif user_input.startswith("fileops create -fil"):
-        _, _, _, file_name = user_input.split()
-        fo.createFile(file_name)
+    while True:
+        user_input = input()
+        if user_input.startswith("fileops create -fol"):
+            _, _, _, folder_name = user_input.split()
+            fo.createFolder(folder_name)
+        elif user_input.startswith("fileops create -fil"):
+            _, _, _, file_name = user_input.split()
+            fo.createFile(file_name)
+        else:
+            print("fileops: Invalid Command")
