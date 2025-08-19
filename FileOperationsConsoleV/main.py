@@ -60,26 +60,31 @@ class FileOperations():
 fo = FileOperations()
 
 if __name__ == '__main__':
-    while True:
-        user_input = input()
-        if user_input.startswith("fileops create -fol"):
-            _, _, _, folder_name = user_input.split()
-            print(fo.createFolder(folder_name))
-        elif user_input.startswith("fileops create -fil"):
-            _, _, _, file_name = user_input.split()
-            print(fo.createFile(file_name))
-        elif user_input.startswith("fileops open -fol"):
-            _, _, _, folder_name_for_opening = user_input.split()
-            print(fo.openFolder(folder_name_for_opening))
-        elif user_input.startswith("fileops open -fil"):
-            _, _, _, file_name_for_opening = user_input.split()
-            print(fo.openFile(file_name_for_opening))
-        elif user_input.startswith("fileops copy"):
-            _, _, from_file, to_file = user_input.split()
-            print(fo.copyFilesContent(from_file, to_file))
-        elif user_input.startswith("fileops show -os"):
-            print(fo.showOS())
-        else:
-            print("fileops: Invalid Command")
+    if len(sys.argv) > 1:
+        user_input = " ".join(sys.argv[1:])
+    else:
+        while True:
+            user_input = input()
+            if user_input.startswith("fileops create -fol"):
+                _, _, _, folder_name = user_input.split()
+                print(fo.createFolder(folder_name))
+            elif user_input.startswith("fileops create -fil"):
+                _, _, _, file_name = user_input.split()
+                print(fo.createFile(file_name))
+            elif user_input.startswith("fileops open -fol"):
+                _, _, _, folder_name_for_opening = user_input.split()
+                print(fo.openFolder(folder_name_for_opening))
+            elif user_input.startswith("fileops open -fil"):
+                _, _, _, file_name_for_opening = user_input.split()
+                print(fo.openFile(file_name_for_opening))
+            elif user_input.startswith("fileops copy"):
+                _, _, from_file, to_file = user_input.split()
+                print(fo.copyFilesContent(from_file, to_file))
+            elif user_input.startswith("fileops show -os"):
+                print(fo.showOS())
+            elif user_input == "fileops -v":
+                print("FILEOPS V1.0.0")
+            else:
+                print("fileops: Invalid Command")
 
 #FUTURE: add feature adding content to creating folder and files
