@@ -1,1 +1,0 @@
-programs cointains from console commands like "create -fol", "open -fol", "create -fil", "start -fil", "copy", "show -os"
